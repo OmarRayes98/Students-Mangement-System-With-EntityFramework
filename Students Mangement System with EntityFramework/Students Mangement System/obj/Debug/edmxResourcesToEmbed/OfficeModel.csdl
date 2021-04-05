@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Office_TutorialsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Bill">
+    <Key>
+      <PropertyRef Name="Id_Bill" />
+    </Key>
+    <Property Name="Id_Bill" Type="Int32" Nullable="false" />
+    <Property Name="Paid" Type="Int32" Nullable="false" />
+    <Property Name="Rest" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Id_S" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_Bill_Students" FromRole="Bill" ToRole="Students" />
+  </EntityType>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="Id_Class" />
+    </Key>
+    <Property Name="Id_Class" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Id_Course" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Course" Relationship="Self.FK_Class_Course" FromRole="Class" ToRole="Course" />
+    <NavigationProperty Name="Sessions" Relationship="Self.FK_Session_Class" FromRole="Class" ToRole="Session" />
+    <NavigationProperty Name="Student_Regisrtation" Relationship="Self.FK_Student_Regisrtation_Class" FromRole="Class" ToRole="Student_Regisrtation" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="Id_Course" />
+    </Key>
+    <Property Name="Id_Course" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Cost" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Classes" Relationship="Self.FK_Class_Course" FromRole="Course" ToRole="Class" />
+  </EntityType>
+  <EntityType Name="Session">
+    <Key>
+      <PropertyRef Name="Id_Session" />
+    </Key>
+    <Property Name="Id_Session" Type="Int32" Nullable="false" />
+    <Property Name="Day_S" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Time_S" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Id_Class" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Class" Relationship="Self.FK_Session_Class" FromRole="Session" ToRole="Class" />
+  </EntityType>
+  <EntityType Name="Specializtion">
+    <Key>
+      <PropertyRef Name="Id_Specializtion" />
+    </Key>
+    <Property Name="Id_Specializtion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_Specializtion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Students" Relationship="Self.FK_Students_Specializtion" FromRole="Specializtion" ToRole="Students" />
+  </EntityType>
+  <EntityType Name="Student_Regisrtation">
+    <Key>
+      <PropertyRef Name="Id_SR" />
+    </Key>
+    <Property Name="Id_SR" Type="Int32" Nullable="false" />
+    <Property Name="Id_S" Type="Int32" Nullable="false" />
+    <Property Name="Id_Class" Type="Int32" Nullable="false" />
+    <Property Name="Date_Reg" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Value_Reg" Type="Int32" Nullable="false" />
+    <Property Name="Note_Reg" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Class" Relationship="Self.FK_Student_Regisrtation_Class" FromRole="Student_Regisrtation" ToRole="Class" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_Student_Regisrtation_Students" FromRole="Student_Regisrtation" ToRole="Students" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Id_S" />
+    </Key>
+    <Property Name="Id_S" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Land_Line" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Id_Specializtion" Type="Int32" />
+    <NavigationProperty Name="Bills" Relationship="Self.FK_Bill_Students" FromRole="Students" ToRole="Bill" />
+    <NavigationProperty Name="Specializtion" Relationship="Self.FK_Students_Specializtion" FromRole="Students" ToRole="Specializtion" />
+    <NavigationProperty Name="Student_Regisrtation" Relationship="Self.FK_Student_Regisrtation_Students" FromRole="Students" ToRole="Student_Regisrtation" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id_User" />
+    </Key>
+    <Property Name="Id_User" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PWD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="User_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Bill_Students">
+    <End Role="Students" Type="Self.Student" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="Id_S" />
+      </Principal>
+      <Dependent Role="Bill">
+        <PropertyRef Name="Id_S" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Class_Course">
+    <End Role="Course" Type="Self.Course" Multiplicity="1" />
+    <End Role="Class" Type="Self.Class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id_Course" />
+      </Principal>
+      <Dependent Role="Class">
+        <PropertyRef Name="Id_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Session_Class">
+    <End Role="Class" Type="Self.Class" Multiplicity="1" />
+    <End Role="Session" Type="Self.Session" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="Id_Class" />
+      </Principal>
+      <Dependent Role="Session">
+        <PropertyRef Name="Id_Class" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_Regisrtation_Class">
+    <End Role="Class" Type="Self.Class" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Student_Regisrtation" Type="Self.Student_Regisrtation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="Id_Class" />
+      </Principal>
+      <Dependent Role="Student_Regisrtation">
+        <PropertyRef Name="Id_Class" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Students_Specializtion">
+    <End Role="Specializtion" Type="Self.Specializtion" Multiplicity="0..1" />
+    <End Role="Students" Type="Self.Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specializtion">
+        <PropertyRef Name="Id_Specializtion" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="Id_Specializtion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_Regisrtation_Students">
+    <End Role="Students" Type="Self.Student" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Student_Regisrtation" Type="Self.Student_Regisrtation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="Id_S" />
+      </Principal>
+      <Dependent Role="Student_Regisrtation">
+        <PropertyRef Name="Id_S" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Office_TutorialsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bills" EntityType="Self.Bill" />
+    <EntitySet Name="Classes" EntityType="Self.Class" />
+    <EntitySet Name="Courses" EntityType="Self.Course" />
+    <EntitySet Name="Sessions" EntityType="Self.Session" />
+    <EntitySet Name="Specializtions" EntityType="Self.Specializtion" />
+    <EntitySet Name="Student_Regisrtation" EntityType="Self.Student_Regisrtation" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Bill_Students" Association="Self.FK_Bill_Students">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Bill" EntitySet="Bills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Class_Course" Association="Self.FK_Class_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Class" EntitySet="Classes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Session_Class" Association="Self.FK_Session_Class">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="Session" EntitySet="Sessions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_Regisrtation_Class" Association="Self.FK_Student_Regisrtation_Class">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="Student_Regisrtation" EntitySet="Student_Regisrtation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Students_Specializtion" Association="Self.FK_Students_Specializtion">
+      <End Role="Specializtion" EntitySet="Specializtions" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_Regisrtation_Students" Association="Self.FK_Student_Regisrtation_Students">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Student_Regisrtation" EntitySet="Student_Regisrtation" />
+    </AssociationSet>
+    <FunctionImport Name="Show_Course" ReturnType="Collection(Office_TutorialsModel.Show_Course_Result)">
+      <Parameter Name="ID_Class" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Fill_Name_Rest" ReturnType="Collection(Office_TutorialsModel.Fill_Name_Rest_Result)">
+      <Parameter Name="id_s" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Backup_Office_Tutorials">
+      <Parameter Name="PathName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Backup_Office_Tutorial">
+      <Parameter Name="PathName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Print_LastBill" ReturnType="Collection(Office_TutorialsModel.Print_LastBill_Result)">
+      <Parameter Name="Total" Mode="In" Type="Int32" />
+      <Parameter Name="Max_Bill" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="Show_Course_Result">
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="Cost" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Fill_Name_Rest_Result">
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Rest" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Print_LastBill_Result">
+    <Property Type="String" Name="اسم_الطالب" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="المبلغ_المدفوع" Nullable="false" />
+    <Property Type="Int32" Name="الباقي" Nullable="false" />
+    <Property Type="DateTime" Name="تاريخ_الدفع" Nullable="false" />
+    <Property Type="Int32" Name="المبلغ_الكامل" Nullable="true" />
+  </ComplexType>
+</Schema>

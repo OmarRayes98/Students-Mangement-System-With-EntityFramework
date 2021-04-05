@@ -1,0 +1,114 @@
+O:\c#\Students Mangement System\Students Mangement System\bin\Debug\Students Mangement System.exe
+O:\c#\Students Mangement System\Students Mangement System\bin\Debug\Students Mangement System.pdb
+O:\c#\Students Mangement System\Students Mangement System\obj\Debug\Students Mangement System.csprojResolveAssemblyReference.cache
+O:\c#\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Login.resources
+O:\c#\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Properties.Resources.resources
+O:\c#\Students Mangement System\Students Mangement System\obj\Debug\Students Mangement System.csproj.GenerateResource.Cache
+O:\c#\Students Mangement System\Students Mangement System\obj\Debug\Students Mangement System.exe
+O:\c#\Students Mangement System\Students Mangement System\obj\Debug\Students Mangement System.pdb
+O:\c#\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_MainForm.resources
+O:\c#\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Users.resources
+O:\c#\Students Mangement System\Students Mangement System\bin\Debug\Students Mangement System.exe.config
+O:\c#\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Setting.resources
+O:\c#\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Students.resources
+O:\c#\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Additems.resources
+O:\c#\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Course.resources
+O:\c#\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Class.resources
+O:\c#\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Session.resources
+O:\c#\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Registration.resources
+O:\c#\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Bill.resources
+O:\c#\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_OldBills.resources
+O:\c#\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_StudentsClass.resources
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\Students Mangement System.exe.config
+E:\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students Mangement System.exe
+E:\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students Mangement System.pdb
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\Students Mangement System.exe
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\Students Mangement System.pdb
+E:\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Additems.resources
+E:\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Bill.resources
+E:\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Class.resources
+E:\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Course.resources
+E:\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Login.resources
+E:\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_MainForm.resources
+E:\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_OldBills.resources
+E:\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Registration.resources
+E:\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Session.resources
+E:\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Setting.resources
+E:\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Students.resources
+E:\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_StudentsClass.resources
+E:\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Users.resources
+E:\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Properties.Resources.resources
+E:\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students Mangement System.csproj.GenerateResource.Cache
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\EntityFramework.dll
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\EntityFramework.SqlServer.dll
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\EntityFramework.xml
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\EntityFramework.SqlServer.xml
+E:\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Backup.resources
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportSource.dll
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.Shared.dll
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.Windows.Forms.dll
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\FlashControlV71.dll
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\ShockwaveFlashObjects.dll
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+E:\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\stdole.dll
+E:\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students Mangement System.csprojResolveAssemblyReference.cache
+E:\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Report.Frm_Report_LastBill.resources
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\Students Mangement System.exe.config
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\Students Mangement System.exe
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\Students Mangement System.pdb
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportSource.dll
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.Shared.dll
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.Windows.Forms.dll
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\EntityFramework.dll
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\EntityFramework.SqlServer.dll
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\FlashControlV71.dll
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\ShockwaveFlashObjects.dll
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\stdole.dll
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\EntityFramework.xml
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\bin\Debug\EntityFramework.SqlServer.xml
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Additems.resources
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Bill.resources
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Class.resources
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Backup.resources
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Course.resources
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Login.resources
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_MainForm.resources
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_OldBills.resources
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Registration.resources
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Session.resources
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Setting.resources
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Students.resources
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_StudentsClass.resources
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Frm_Users.resources
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Properties.Resources.resources
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.Report.Frm_Report_LastBill.resources
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students Mangement System.csproj.GenerateResource.Cache
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students Mangement System.exe
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students Mangement System.pdb
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students Mangement System.csprojResolveAssemblyReference.cache
+D:\Test\EntityFramework\Students Mangement System\Students Mangement System\obj\Debug\Students_Mangement_System.PL.Frm_Start.resources

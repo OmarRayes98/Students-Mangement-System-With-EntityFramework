@@ -1,0 +1,605 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Office_TutorialsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="Id_Bill" />
+          </Key>
+          <Property Name="Id_Bill" Type="int" Nullable="false" />
+          <Property Name="Paid" Type="int" Nullable="false" />
+          <Property Name="Rest" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Id_S" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="Id_Class" />
+          </Key>
+          <Property Name="Id_Class" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Id_Course" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="Id_Course" />
+          </Key>
+          <Property Name="Id_Course" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Cost" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Session">
+          <Key>
+            <PropertyRef Name="Id_Session" />
+          </Key>
+          <Property Name="Id_Session" Type="int" Nullable="false" />
+          <Property Name="Day_S" Type="nvarchar" MaxLength="50" />
+          <Property Name="Time_S" Type="nvarchar" MaxLength="50" />
+          <Property Name="Id_Class" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Specializtion">
+          <Key>
+            <PropertyRef Name="Id_Specializtion" />
+          </Key>
+          <Property Name="Id_Specializtion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Specializtion" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Student_Regisrtation">
+          <Key>
+            <PropertyRef Name="Id_SR" />
+          </Key>
+          <Property Name="Id_SR" Type="int" Nullable="false" />
+          <Property Name="Id_S" Type="int" Nullable="false" />
+          <Property Name="Id_Class" Type="int" Nullable="false" />
+          <Property Name="Date_Reg" Type="date" Nullable="false" />
+          <Property Name="Value_Reg" Type="int" Nullable="false" />
+          <Property Name="Note_Reg" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="Id_S" />
+          </Key>
+          <Property Name="Id_S" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Land_Line" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="Id_Specializtion" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id_User" />
+          </Key>
+          <Property Name="Id_User" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PWD" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="User_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Bill_Students">
+          <End Role="Students" Type="Self.Students" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="Id_S" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="Id_S" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Class_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="Class" Type="Self.Class" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="Id_Course" />
+            </Principal>
+            <Dependent Role="Class">
+              <PropertyRef Name="Id_Course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Session_Class">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="Session" Type="Self.Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="Id_Class" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="Id_Class" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Regisrtation_Class">
+          <End Role="Class" Type="Self.Class" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Student_Regisrtation" Type="Self.Student_Regisrtation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="Id_Class" />
+            </Principal>
+            <Dependent Role="Student_Regisrtation">
+              <PropertyRef Name="Id_Class" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Regisrtation_Students">
+          <End Role="Students" Type="Self.Students" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Student_Regisrtation" Type="Self.Student_Regisrtation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="Id_S" />
+            </Principal>
+            <Dependent Role="Student_Regisrtation">
+              <PropertyRef Name="Id_S" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_Specializtion">
+          <End Role="Specializtion" Type="Self.Specializtion" Multiplicity="0..1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specializtion">
+              <PropertyRef Name="Id_Specializtion" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="Id_Specializtion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Fill_Name_Rest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_s" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Print_LastBill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Total" Type="int" Mode="In" />
+          <Parameter Name="Max_Bill" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Show_Course" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_Class" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="Office_TutorialsModelStoreContainer">
+          <EntitySet Name="Bill" EntityType="Self.Bill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Session" EntityType="Self.Session" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Specializtion" EntityType="Self.Specializtion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student_Regisrtation" EntityType="Self.Student_Regisrtation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Bill_Students" Association="Self.FK_Bill_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Bill" EntitySet="Bill" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Class_Course" Association="Self.FK_Class_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Class" EntitySet="Class" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Session_Class" Association="Self.FK_Session_Class">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="Session" EntitySet="Session" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Regisrtation_Class" Association="Self.FK_Student_Regisrtation_Class">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="Student_Regisrtation" EntitySet="Student_Regisrtation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Regisrtation_Students" Association="Self.FK_Student_Regisrtation_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Student_Regisrtation" EntitySet="Student_Regisrtation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_Specializtion" Association="Self.FK_Students_Specializtion">
+            <End Role="Specializtion" EntitySet="Specializtion" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Office_TutorialsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="Id_Bill" />
+          </Key>
+          <Property Name="Id_Bill" Type="Int32" Nullable="false" />
+          <Property Name="Paid" Type="Int32" Nullable="false" />
+          <Property Name="Rest" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Id_S" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Bill_Students" FromRole="Bill" ToRole="Students" />
+        </EntityType>
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="Id_Class" />
+          </Key>
+          <Property Name="Id_Class" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id_Course" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Course" Relationship="Self.FK_Class_Course" FromRole="Class" ToRole="Course" />
+          <NavigationProperty Name="Sessions" Relationship="Self.FK_Session_Class" FromRole="Class" ToRole="Session" />
+          <NavigationProperty Name="Student_Regisrtation" Relationship="Self.FK_Student_Regisrtation_Class" FromRole="Class" ToRole="Student_Regisrtation" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="Id_Course" />
+          </Key>
+          <Property Name="Id_Course" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cost" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Classes" Relationship="Self.FK_Class_Course" FromRole="Course" ToRole="Class" />
+        </EntityType>
+        <EntityType Name="Session">
+          <Key>
+            <PropertyRef Name="Id_Session" />
+          </Key>
+          <Property Name="Id_Session" Type="Int32" Nullable="false" />
+          <Property Name="Day_S" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Time_S" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Id_Class" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Class" Relationship="Self.FK_Session_Class" FromRole="Session" ToRole="Class" />
+        </EntityType>
+        <EntityType Name="Specializtion">
+          <Key>
+            <PropertyRef Name="Id_Specializtion" />
+          </Key>
+          <Property Name="Id_Specializtion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Specializtion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Students" Relationship="Self.FK_Students_Specializtion" FromRole="Specializtion" ToRole="Students" />
+        </EntityType>
+        <EntityType Name="Student_Regisrtation">
+          <Key>
+            <PropertyRef Name="Id_SR" />
+          </Key>
+          <Property Name="Id_SR" Type="Int32" Nullable="false" />
+          <Property Name="Id_S" Type="Int32" Nullable="false" />
+          <Property Name="Id_Class" Type="Int32" Nullable="false" />
+          <Property Name="Date_Reg" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Value_Reg" Type="Int32" Nullable="false" />
+          <Property Name="Note_Reg" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Class" Relationship="Self.FK_Student_Regisrtation_Class" FromRole="Student_Regisrtation" ToRole="Class" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Student_Regisrtation_Students" FromRole="Student_Regisrtation" ToRole="Students" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Id_S" />
+          </Key>
+          <Property Name="Id_S" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Land_Line" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id_Specializtion" Type="Int32" />
+          <NavigationProperty Name="Bills" Relationship="Self.FK_Bill_Students" FromRole="Students" ToRole="Bill" />
+          <NavigationProperty Name="Specializtion" Relationship="Self.FK_Students_Specializtion" FromRole="Students" ToRole="Specializtion" />
+          <NavigationProperty Name="Student_Regisrtation" Relationship="Self.FK_Student_Regisrtation_Students" FromRole="Students" ToRole="Student_Regisrtation" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id_User" />
+          </Key>
+          <Property Name="Id_User" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PWD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="User_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Bill_Students">
+          <End Role="Students" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="Id_S" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="Id_S" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Class_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="Class" Type="Self.Class" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="Id_Course" />
+            </Principal>
+            <Dependent Role="Class">
+              <PropertyRef Name="Id_Course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Session_Class">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="Session" Type="Self.Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="Id_Class" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="Id_Class" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Regisrtation_Class">
+          <End Role="Class" Type="Self.Class" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Student_Regisrtation" Type="Self.Student_Regisrtation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="Id_Class" />
+            </Principal>
+            <Dependent Role="Student_Regisrtation">
+              <PropertyRef Name="Id_Class" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_Specializtion">
+          <End Role="Specializtion" Type="Self.Specializtion" Multiplicity="0..1" />
+          <End Role="Students" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specializtion">
+              <PropertyRef Name="Id_Specializtion" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="Id_Specializtion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Regisrtation_Students">
+          <End Role="Students" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Student_Regisrtation" Type="Self.Student_Regisrtation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="Id_S" />
+            </Principal>
+            <Dependent Role="Student_Regisrtation">
+              <PropertyRef Name="Id_S" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Office_TutorialsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bills" EntityType="Self.Bill" />
+          <EntitySet Name="Classes" EntityType="Self.Class" />
+          <EntitySet Name="Courses" EntityType="Self.Course" />
+          <EntitySet Name="Sessions" EntityType="Self.Session" />
+          <EntitySet Name="Specializtions" EntityType="Self.Specializtion" />
+          <EntitySet Name="Student_Regisrtation" EntityType="Self.Student_Regisrtation" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_Bill_Students" Association="Self.FK_Bill_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Class_Course" Association="Self.FK_Class_Course">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="Class" EntitySet="Classes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Session_Class" Association="Self.FK_Session_Class">
+            <End Role="Class" EntitySet="Classes" />
+            <End Role="Session" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Regisrtation_Class" Association="Self.FK_Student_Regisrtation_Class">
+            <End Role="Class" EntitySet="Classes" />
+            <End Role="Student_Regisrtation" EntitySet="Student_Regisrtation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_Specializtion" Association="Self.FK_Students_Specializtion">
+            <End Role="Specializtion" EntitySet="Specializtions" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Regisrtation_Students" Association="Self.FK_Student_Regisrtation_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Student_Regisrtation" EntitySet="Student_Regisrtation" />
+          </AssociationSet>
+          <FunctionImport Name="Show_Course" ReturnType="Collection(Office_TutorialsModel.Show_Course_Result)">
+          <Parameter Name="ID_Class" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Fill_Name_Rest" ReturnType="Collection(Office_TutorialsModel.Fill_Name_Rest_Result)">
+          <Parameter Name="id_s" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Backup_Office_Tutorials">
+          <Parameter Name="PathName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Backup_Office_Tutorial">
+            <Parameter Name="PathName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Print_LastBill" ReturnType="Collection(Office_TutorialsModel.Print_LastBill_Result)">
+            <Parameter Name="Total" Mode="In" Type="Int32" />
+            <Parameter Name="Max_Bill" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="Show_Course_Result">
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="Cost" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Fill_Name_Rest_Result">
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Rest" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Print_LastBill_Result">
+          <Property Type="String" Name="اسم_الطالب" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="المبلغ_المدفوع" Nullable="false" />
+          <Property Type="Int32" Name="الباقي" Nullable="false" />
+          <Property Type="DateTime" Name="تاريخ_الدفع" Nullable="false" />
+          <Property Type="Int32" Name="المبلغ_الكامل" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Office_TutorialsModelStoreContainer" CdmEntityContainer="Office_TutorialsEntities">
+          <EntitySetMapping Name="Bills">
+            <EntityTypeMapping TypeName="Office_TutorialsModel.Bill">
+              <MappingFragment StoreEntitySet="Bill">
+                <ScalarProperty Name="Id_Bill" ColumnName="Id_Bill" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="Rest" ColumnName="Rest" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Id_S" ColumnName="Id_S" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Classes">
+            <EntityTypeMapping TypeName="Office_TutorialsModel.Class">
+              <MappingFragment StoreEntitySet="Class">
+                <ScalarProperty Name="Id_Class" ColumnName="Id_Class" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id_Course" ColumnName="Id_Course" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="Office_TutorialsModel.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="Id_Course" ColumnName="Id_Course" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sessions">
+            <EntityTypeMapping TypeName="Office_TutorialsModel.Session">
+              <MappingFragment StoreEntitySet="Session">
+                <ScalarProperty Name="Id_Session" ColumnName="Id_Session" />
+                <ScalarProperty Name="Day_S" ColumnName="Day_S" />
+                <ScalarProperty Name="Time_S" ColumnName="Time_S" />
+                <ScalarProperty Name="Id_Class" ColumnName="Id_Class" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Specializtions">
+            <EntityTypeMapping TypeName="Office_TutorialsModel.Specializtion">
+              <MappingFragment StoreEntitySet="Specializtion">
+                <ScalarProperty Name="Id_Specializtion" ColumnName="Id_Specializtion" />
+                <ScalarProperty Name="Name_Specializtion" ColumnName="Name_Specializtion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student_Regisrtation">
+            <EntityTypeMapping TypeName="Office_TutorialsModel.Student_Regisrtation">
+              <MappingFragment StoreEntitySet="Student_Regisrtation">
+                <ScalarProperty Name="Id_SR" ColumnName="Id_SR" />
+                <ScalarProperty Name="Id_S" ColumnName="Id_S" />
+                <ScalarProperty Name="Id_Class" ColumnName="Id_Class" />
+                <ScalarProperty Name="Date_Reg" ColumnName="Date_Reg" />
+                <ScalarProperty Name="Value_Reg" ColumnName="Value_Reg" />
+                <ScalarProperty Name="Note_Reg" ColumnName="Note_Reg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="Office_TutorialsModel.Student">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="Id_S" ColumnName="Id_S" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Land_Line" ColumnName="Land_Line" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Id_Specializtion" ColumnName="Id_Specializtion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Office_TutorialsModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Office_TutorialsModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PWD" ColumnName="PWD" />
+                <ScalarProperty Name="User_Type" ColumnName="User_Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Show_Course" FunctionName="Office_TutorialsModel.Store.Show_Course">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Office_TutorialsModel.Show_Course_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Fill_Name_Rest" FunctionName="Office_TutorialsModel.Store.Fill_Name_Rest">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Office_TutorialsModel.Fill_Name_Rest_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Rest" ColumnName="Rest" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Print_LastBill" FunctionName="Office_TutorialsModel.Store.Print_LastBill">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Office_TutorialsModel.Print_LastBill_Result">
+                <ScalarProperty Name="اسم_الطالب" ColumnName="اسم الطالب" />
+                <ScalarProperty Name="المبلغ_المدفوع" ColumnName="المبلغ المدفوع" />
+                <ScalarProperty Name="الباقي" ColumnName="الباقي" />
+                <ScalarProperty Name="تاريخ_الدفع" ColumnName="تاريخ الدفع" />
+                <ScalarProperty Name="المبلغ_الكامل" ColumnName="المبلغ الكامل" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
